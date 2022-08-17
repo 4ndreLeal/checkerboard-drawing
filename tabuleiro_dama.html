@@ -1,0 +1,77 @@
+<html>
+<head></head>
+	<body>
+		<canvas width="800" height="600"></canvas>
+		<script>
+			var tela = document.querySelector('canvas');
+			var pincel = tela.getContext('2d');
+			pincel.fillStyle = 'white';
+			pincel.strokeStyle = 'black';
+			pincel.lineWidth = '2';
+			pincel.fillRect(0, 0, 500, 500);
+			pincel.strokeRect(0, 0, 500, 500);
+			pincel.fillStyle = 'black';
+			pincel.fillRect(50, 50, 400, 400);
+			pincel.strokeRect(50, 50, 400, 400);
+			function escreveTexto(texto, x, y) {
+				var tela = document.querySelector('canvas');
+				var pincel = tela.getContext('2d');
+				pincel.font = '30px Verdana';
+				var gradient = pincel.createLinearGradient(0, 0, tela.width, 0); // criando gradiente
+				gradient.addColorStop('0', 'magenta');
+				gradient.addColorStop('0.5', 'blue');
+				gradient.addColorStop('1.0', 'red');
+				pincel.fillStyle = gradient;
+				pincel.fillText(texto, x, y);
+			}
+			function desenharCirculo(x, y, raio, cor) {
+				var tela = document.querySelector('canvas');
+				var pincel = tela.getContext('2d');
+				pincel.fillStyle = cor;
+				pincel.beginPath();
+				pincel.arc(x, y, raio, 0, 2*Math.PI);
+				pincel.fill();
+			}
+			function desenharQuadrado(x, y, tamanho, cor, corBorda) {
+				var tela = document.querySelector('canvas');
+				var pincel = tela.getContext('2d');
+				pincel.fillStyle = cor;
+				pincel.fillRect(x, y, tamanho, tamanho);
+				pincel.strokeStyle = corBorda;
+				pincel.lineWidth = '0';
+				pincel.strokeRect(x, y, tamanho, tamanho);
+			}
+			for(var linha1 = 50; linha1 <= 400; linha1 = linha1 + 100) {
+				desenharQuadrado(linha1, 50, 50, 'white', 'black');
+				desenharCirculo(linha1+75, 75, 20, 'darkred');
+			}
+			for(var linha2 = 100; linha2 <= 450; linha2 = linha2 + 100) {
+				desenharQuadrado(linha2, 100, 50, 'white', 'black');
+				desenharCirculo(linha2-25, 125, 20, 'darkred');
+			}
+			for(var linha3 = 50; linha3 <= 400; linha3 = linha3 + 100) {
+				desenharQuadrado(linha3, 150, 50, 'white', 'black');
+				desenharCirculo(linha3+75, 175, 20, 'darkred');
+			}
+			for(var linha4 = 100; linha4 <= 450; linha4 = linha4 + 100) {
+				desenharQuadrado(linha4, 200, 50, 'white', 'black');
+			}
+			for(var linha5 = 50; linha5 <= 400; linha5 = linha5 + 100) {
+				desenharQuadrado(linha5, 250, 50, 'white', 'black');
+			}
+			for(var linha6 = 100; linha6 <= 450; linha6 = linha6 + 100) {
+				desenharQuadrado(linha6, 300, 50, 'white', 'black');
+				desenharCirculo(linha6+25, 325, 20, 'blue');
+			}
+			for(var linha7 = 50; linha7 <= 400; linha7 = linha7 + 100) {
+				desenharQuadrado(linha7, 350, 50, 'white', 'black');
+				desenharCirculo(linha7+25, 375, 20, 'blue');
+			}
+			for(var linha8 = 100; linha8 <= 450; linha8 = linha8 + 100) {
+				desenharQuadrado(linha8, 400, 50, 'white', 'black');
+				desenharCirculo(linha8+25, 425, 20, 'blue');
+			}
+			escreveTexto('Tabuleiro de dama', 110, 35);
+		</script>
+	</body>
+</html>
